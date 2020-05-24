@@ -1,0 +1,46 @@
+{
+  "name": "nodejs-api-testavel",
+  "version": "1.0.0",
+  "description": "Curso Waldemar Neto\r Canal Youtube Waldemar Neto: https://www.youtube.com/channel/UCqmJGTdcMIRXOZuukHZ8TqA\r Play list Node.js API testável: https://www.youtube.com/watch?v=l4glc0XNVbM&list=PLz_YTBuxtxt74aOA2W8ArqZpsPlxP-JC9",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test-integration": "set NODE_ENV=test & mocha --opts test/integration/mocha.opts test/integration/*.js",
+    "test-unit": "set NODE_ENV=test & mocha --opts test/unit/mocha.opts test/unit/**/*.js",
+    "test-contract": "set NODE_ENV=test & mocha --opts test/contracts/mocha.opts test/contracts/contracts/*.js",
+    "lint": "eslint **/*.js",
+    "lint:fix": "eslint **/*.js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mcorreiam/NodeJS-API-Testavel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mcorreiam/NodeJS-API-Testavel/issues"
+  },
+  "homepage": "https://github.com/mcorreiam/NodeJS-API-Testavel#readme",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "sequelize": "^5.21.8",
+    "sqlite3": "^4.2.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.0",
+    "joi": "^14.3.1",
+    "joi-assert": "0.0.3",
+    "mocha": "^7.1.2",
+    "supertest": "^4.0.2",
+    "testdouble": "^3.13.1"
+  }
+}
