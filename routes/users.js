@@ -1,11 +1,11 @@
-const BooksController = require('../controller/books');
+const UsersController = require('../controller/users');
 
 const routes = (app) => {
-  const booksController = new BooksController(app.datasource.models.Books);
-  app.route('/books')
+  const usersController = new UsersController(app.datasource.models.Users);
+  app.route('/users')
     .all(app.auth.authenticate())
     .get((req, res) => {
-      booksController.getAll()
+      usersController.getAll()
         .then((response) => {
           res.status(response.statusCode);
           res.json(response.data);
@@ -13,7 +13,7 @@ const routes = (app) => {
         .catch(() => res.status(412));
     })
     .post((req, res) => {
-      booksController.create(req.body)
+      usersController.create(req.body)
         .then((response) => {
           res.status(response.statusCode);
           res.json(response.data);
@@ -21,10 +21,10 @@ const routes = (app) => {
         .catch(() => res.status(412));
     });
 
-  app.route('/books/:id')
+  app.route('/users/:id')
     .all(app.auth.authenticate())
     .get((req, res) => {
-      booksController.getById(req.params)
+      usersController.getById(req.params)
         .then((response) => {
           res.status(response.statusCode);
           res.json(response.data);
@@ -32,7 +32,7 @@ const routes = (app) => {
         .catch(() => res.status(412));
     })
     .put((req, res) => {
-      booksController.update(req.body, req.params)
+      usersController.update(req.body, req.params)
         .then((response) => {
           res.status(response.statusCode);
           res.json(response.data);
@@ -40,7 +40,7 @@ const routes = (app) => {
         .catch(() => res.status(412));
     })
     .delete((req, res) => {
-      booksController.delete(req.params)
+      usersController.delete(req.params)
         .then((response) => {
           res.sendStatus(response.statusCode);
         })

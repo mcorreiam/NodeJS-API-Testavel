@@ -12,6 +12,7 @@ const loadModels = (sequelize) => {
     const model = sequelize.import(modelDir);
     models[model.name] = model;
   });
+
   return models;
 };
 const def = (app) => {

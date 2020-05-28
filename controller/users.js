@@ -9,40 +9,40 @@ const errorResponse = (message, statusCode = httpStatus.BAD_REQUEST) => defaultR
   error: message,
 }, statusCode);
 
-class BooksController {
-  constructor(Books) {
-    this.Books = Books;
+class UsersController {
+  constructor(Users) {
+    this.Users = Users;
   }
 
   getAll() {
-    return this.Books.findAll({})
+    return this.Users.findAll({})
       .then((result) => defaultResponse(result))
       .catch((error) => errorResponse(error.message));
   }
 
   getById(params) {
-    return this.Books.findOne({ where: params })
+    return this.Users.findOne({ where: params })
       .then((result) => defaultResponse(result))
       .catch((error) => errorResponse(error.message));
   }
 
   create(data) {
-    return this.Books.create(data)
+    return this.Users.create(data)
       .then((result) => defaultResponse(result, httpStatus.CREATED))
       .catch((error) => errorResponse(error.message, httpStatus.UNPROCESSABLE_ENTITY));
   }
 
   update(data, params) {
-    return this.Books.update(data, { where: params })
+    return this.Users.update(data, { where: params })
       .then((result) => defaultResponse(result))
       .catch((error) => errorResponse(error.message, httpStatus.UNPROCESSABLE_ENTITY));
   }
 
   delete(params) {
-    return this.Books.destroy({ where: params })
+    return this.Users.destroy({ where: params })
       .then((result) => defaultResponse(result, httpStatus.NO_CONTENT))
       .catch((error) => errorResponse(error.message, httpStatus.UNPROCESSABLE_ENTITY));
   }
 }
 
-module.exports = BooksController;
+module.exports = UsersController;

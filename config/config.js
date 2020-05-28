@@ -9,5 +9,7 @@ const def = {
       underscore: true,
     },
   },
+  jwtSecret: 'Secr3t',
+  jwtSession: { session: false },
 };
 module.exports = def;
